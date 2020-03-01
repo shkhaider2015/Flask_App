@@ -2,6 +2,7 @@ from datetime import datetime
 from myApp import db, login_manager
 from flask_login import UserMixin
 
+# 1st march
 
 @login_manager.user_loader
 def load_user(user_id):
