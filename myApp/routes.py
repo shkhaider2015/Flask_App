@@ -1,5 +1,5 @@
 from flask import render_template, url_for, flash, redirect
-from myApp import app
+from myApp import app, db, bcrypt
 from myApp.forms import RegistrationForm, LoginForm
 from myApp.models import User, Post
 
@@ -35,8 +35,12 @@ def about():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        flash(f'Account created for {form.username.data} !', 'success')
-        return redirect(url_for('home'))
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        db.session.add(user)
+        db.session.commit()
+        flash('Your account has been created! and you are now able to login', 'success')
+        return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
 
