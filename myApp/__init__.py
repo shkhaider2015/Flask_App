@@ -3,34 +3,41 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_mail import Mail
-import os
+from myApp.config import Config
 
 
 
-app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'f6cd85d264d6ceb0ad9a11d7be35a930'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 
-db = SQLAlchemy(app)
-bcrypt = Bcrypt(app)
-login_manager = LoginManager(app)
-login_manager.login_view = 'login'
+
+db = SQLAlchemy()
+bcrypt = Bcrypt()
+login_manager = LoginManager()
+login_manager.login_view = 'users.login'
 login_manager.login_message_category = 'info'
-# set up env for sending emails
-app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
-# private email and password
-app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
-app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
-#initialized
-mail = Mail(app)
- 
-from myApp.users.routes import users
-from myApp.posts.routes import posts
-from myApp.main.routes import main
 
-app.register_blueprint(users)
-app.register_blueprint(posts)
-app.register_blueprint(main)
+#initialized
+mail = Mail()
+ 
+
+
+
+
+def create_app(config_class=Config):
+
+    app = Flask(__name__)
+    app.config.from_object(Config)
+
+    db.init_app(app)
+    bcrypt.init_app(app)
+    login_manager.init_app(app)
+    mail.init_app(app)
+
+    from myApp.users.routes import users
+    from myApp.posts.routes import posts
+    from myApp.main.routes import main
+    app.register_blueprint(users)
+    app.register_blueprint(posts)
+    app.register_blueprint(main)
+
+    return app
