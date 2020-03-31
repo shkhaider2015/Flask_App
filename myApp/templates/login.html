@@ -47,7 +47,7 @@
                 {{ form.submit(class="btn btn-outline-info") }}
 
                 <small class="text-muted ml-3">
-                    <a href="{{ url_for('reset_request') }}">Forgot Password ?</a>
+                    <a href="{{ url_for('users.reset_request') }}">Forgot Password ?</a>
                 </small>
             </div>
             
@@ -57,7 +57,7 @@
     </div>
     <div class="border-top pt-3">
         <small class="text-muted">
-            Don't have an account ? <a href="{{ url_for('register') }}" class="ml-2">Sign Up Now</a>
+            Don't have an account ? <a href="{{ url_for('users.register') }}" class="ml-2">Sign Up Now</a>
         </small>
     </div>
 
