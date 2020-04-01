@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<table class="table-striped table-hover">
+    <tr>
+        <th class="p-3">Name</th><th class="p-3">email</th><th class="p-3">Total Posts</th>
+    </tr>
+    {% for user in users %}
+
+    <tr>
+        <td class="p-3"> {{ user.username }} </td><td class="p-3"> {{ user.email }} </td><td class="p-3"></td>
+    </tr>
+
+    {% endfor %}
+    
+
+</table>
+
+
+
+
+
+{% endblock content %}

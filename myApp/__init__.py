@@ -37,10 +37,12 @@ def create_app(config_class=Config):
     from myApp.posts.routes import posts
     from myApp.main.routes import main
     from myApp.errors.handlers import errors
+    from myApp.admin.routes import admin
 
     app.register_blueprint(users)
     app.register_blueprint(posts)
     app.register_blueprint(main)
     app.register_blueprint(errors)
+    app.register_blueprint(admin)
 
     return app
