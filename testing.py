@@ -1,7 +1,17 @@
-import os
 
-db_email = 'my_db_email'
-db_password = 'my_db_password'
+data = {
+    'shkhaider': 
+    {
+        'user': ('shkhaider, shkhaider2015@gmail.com, 7b3c7b90e070d6fe.jpg'),
+         'post': 16
+    },
+    'dawoodhaider': 
+    {
+        'user': ('dawoodhaider, dawoodhaider@gmail.com, gdfgdfgdfgfd.jpg'),
+         'post': 13
+    }
+}
 
-print(db_email)
-print(db_password)
+for a in data.values():
+    for b in a.values():
+        print(b)

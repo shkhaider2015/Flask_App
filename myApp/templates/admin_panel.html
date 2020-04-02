@@ -3,12 +3,18 @@
 
 <table class="table-striped table-hover">
     <tr>
-        <th class="p-3">Name</th><th class="p-3">Email</th> <th class="p-3">Password</th><th class="p-3">Total Posts</th>
+        <th class="p-3">Name</th>
+        <th class="p-3">Email</th> 
+        <th class="p-3">Password</th>
+        <th class="p-3">Total Posts</th>
     </tr>
     {% for user in users %}
 
     <tr>
-        <td class="p-3"> {{ user.username }} </td><td class="p-3"> {{ user.email }} </td><td class="p-3"> {{ user.password }} </td><td class="p-3"></td>
+        <td class="p-3"> {{ user.username }} </td>
+        <td class="p-3"> {{ user.email }} </td>
+        <td class="p-3"> {{ user.password }} </td>
+        <td class="p-3"></td>
     </tr>
 
     {% endfor %}
