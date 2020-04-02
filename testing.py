@@ -14,4 +14,5 @@ data = {
 
 for a in data.values():
     for b in a.values():
+        print("iteration")
         print(b)

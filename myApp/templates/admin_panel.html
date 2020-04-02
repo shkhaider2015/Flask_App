@@ -1,22 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
 
+
 <table class="table-striped table-hover">
     <tr>
-        <th class="p-3">Name</th>
-        <th class="p-3">Email</th> 
-        <th class="p-3">Password</th>
-        <th class="p-3">Total Posts</th>
+        <th class="p-3"></th>
+        <th class="p-3">Name</th> 
+        <th class="p-3">Email</th>
     </tr>
     {% for user in users %}
 
     <tr>
+        <td class="p-3">
+            <img src="{{ url_for('static', filename='profile_pics/' + user.image_file) }}" alt="" class="rounded-circle article-img">
+        </td>
         <td class="p-3"> {{ user.username }} </td>
         <td class="p-3"> {{ user.email }} </td>
-        <td class="p-3"> {{ user.password }} </td>
-        <td class="p-3"></td>
     </tr>
 
+    
     {% endfor %}
     
 
