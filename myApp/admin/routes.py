@@ -15,7 +15,7 @@ def admin_login():
             flash("Admin is correct", 'success')
             users = User.query.all()
             print(users)
-            return render_template('admin_panel.html', title='Amin Panel', users=users)
+            return render_template('admin_panel.html', title='Amin Panel', users=users, admin=True)
         else:
             flash("Admin is not correct", 'info')
     return render_template('login.html', title='Admin Panel', form=form, admin=True)

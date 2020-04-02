@@ -62,6 +62,8 @@
             {% endwith %}
             {% block content %}{% endblock %}
           </div>
+          {% if admin is defined %}
+          {% else %}
           <div class="col-md-4">
             <div class="content-section">
               <h3>Our Sidebar</h3>
@@ -75,6 +77,7 @@
               </p>
             </div>
           </div>
+          {% endif %}
         </div>
       </main>
 
