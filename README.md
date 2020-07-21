@@ -6,4 +6,4 @@ For this web application, I have used a flask micro web framework which was real
 Some screenshots are given here, check it out.
 
 ### Home Page
-![]["Screenshots/home_page.png"]
+![]["https://github.com/shkhaider2015/Flask_App/blob/master/Screenshots/home_page.PNG"]
