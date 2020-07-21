@@ -1,5 +1,4 @@
-tup = (1, 2, 4, 8)
-tup = tup[-2:-1]
-tup=[tup[-1]]
+def fun(x):
+    return 1 if x % 2 != 0 else 2
 
-print(tup)
+print(fun(fun(1)))
